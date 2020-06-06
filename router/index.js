@@ -10,6 +10,8 @@ console.log("Congrats! Router is loaded");
 
 route.get('/',homeController.home);
 
+route.use('/users',require('./users'));
+
 
 
 module.exports= route;
