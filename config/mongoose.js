@@ -1,17 +1,15 @@
+const mongoose = require('mongoose');
 
-// Requires the libary to connect to database
-const mongoose= require('mongoose');
+mongoose.connect('mongodb://localhost/codeial_development');
 
-// To connect with the database
-mongoose.connect('mongodb://localhost/codial_devolopment');
+const db = mongoose.connection;
 
-// To check wether connection is being made
-const db= mongoose.connection;
-// If error
-db.on('error',console.error.bind(console,'error connecting to db'));
-// If succesfull
-db.once('open',function(){
-    console.log('Succesfully connected to the database');
+db.on('error', console.error.bind(console, "Error connecting to MongoDB"));
+
+
+db.once('open', function(){
+    console.log('Connected to Database :: MongoDB');
 });
 
-module.exports= db;
+
+module.exports = db;
